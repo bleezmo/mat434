@@ -1,11 +1,4 @@
-from tkinter import *
-
-from pylab import *
-import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib.cm as cm
-import matplotlib.colors as colors
-from scipy import ndimage
 import math
 
 def plot(x,y):
