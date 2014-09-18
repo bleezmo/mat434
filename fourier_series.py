@@ -1,5 +1,5 @@
 import matplotlib.pyplot as plt
-import math
+from math import *
 
 def plot(x,y):
 	fig = plt.figure(figsize=(7,7))
@@ -8,19 +8,20 @@ def plot(x,y):
 	plt.show()
 	plt.close('all')
 
-def getFn(x):
-	f = math.pi/2
+def getFn(x,a0,an,bn):
+	f = pi/2
 	for n in range(1,11):
-		f = f + (((2*((-1)**n))-2)*math.cos(n*x))/(math.pi*n*n)
+		f = f + (eval(an)*cos(n*x))+(eval(bn)*sin(n*x))
 	return f
 
-def start():
-	end = int(math.pi*100*2)
+def start(a0,an,bn):
+	end = int(pi*100*2)
 	xarr,yarr = end*[None],end*[None]
 	for x in range(0,end,1):
-		x_offset = (x/100)-round(math.pi,2)
+		x_offset = (x/100)-round(pi,2)
 		xarr[x] = x_offset
-		yarr[x] = getFn(x_offset)
+		yarr[x] = getFn(x_offset,a0,an,bn)
 	plot(xarr,yarr)
-start()	
 
+def sample():
+	start("pi/2","(((2*((-1)**n))-2))/(pi*n*n)","0")
